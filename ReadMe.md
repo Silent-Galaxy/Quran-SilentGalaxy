@@ -140,3 +140,318 @@ python3 -m http.server 8000
 <p align="center">
   با آرزوی بهره‌مندی و آرامش در تلاوت کلام وحی ✨
 </p>
+
+
+
+
+
+
+
+در ادامه **۷ دیاگرام استاندارد مهندسی نرم‌افزار با فرمت PlantUML** آماده شده است. این دیاگرام‌ها زوایای مختلف معماری (ارتباطات سیستم، چرخه داده، ماشین وضعیت صوتی، پایپ‌لاین پردازش تجوید، ساختار کامپوننت‌ها و سفر کاربر) را پوشش می‌دهند.
+
+کدهای هر بخش را می‌توانید مستقیماً در **[ادیتور آنلاین PlantUML](https://editor.plantuml.com/)** کپی کنید تا تصویر خروجی را مشاهده فرمایید یا در انتهای فایل `README.md` در گیت‌هاب قرار دهید.
+
+---
+
+### ۱. دیاگرام معماری کلان سامانه (System Architecture Diagram)
+![11](image-5.png)
+> **هدف:** درک رابطه برنامه تک‌صفحه‌ای (Client-Side) با سرویس‌های ابری، شبکه CDN و حافظه محلی مرورگر.
+
+```plantuml
+@startuml
+!theme vibrant
+title دیاگرام معماری کلان و بسترهای ارتباطی (Quran Pro M3)
+
+actor "کاربر نهایی" as User
+package "مرورگر کاربر (Client Browser)" {
+    component [Single-File Application\n(index.html)] as App
+    database "LocalStorage\n(تنظیمات، نشانک، تاریخچه)" as Storage
+    node "Audio Engine\n(HTML5 Audio API)" as AudioAPI
+}
+
+cloud "شبکه‌های توزیع محتوا (CDNs)" {
+    [Google Fonts\n(Amiri, Vazir, Noto, ...)] as Fonts
+    [FontAwesome CDN\n(Icons)] as Icons
+}
+
+cloud "زیرساخت‌های خارجی (APIs)" {
+    [AlQuran Cloud REST API\n(متون، ترجمه‌ها و ابرداده)] as QuranAPI
+    [Islamic Network CDN\n(استریم فایل‌های صوتی MP3)] as AudioCDN
+}
+
+User --> App : تعامل کاربری / ورودی‌ها
+App <--> Storage : همگام‌سازی وضعیت (State Sync)
+App --> Fonts : دریافت فونت‌های وب
+App --> Icons : دریافت آیکون‌های وکتور
+App --> QuranAPI : درخواست دسته‌ای داده سوره‌ها
+App --> AudioAPI : فرمان پخش، ولوم و توقف
+AudioAPI --> AudioCDN : استریم صوت قاریان
+@enduml
+```
+
+---
+
+### ۲. دیاگرام توالی بارگذاری سوره و ترجمه‌ها (Sequence Diagram)
+![22](image-6.png)
+> **هدف:** نمایش دقیق ترتیبات رویدادها از زمان انتخاب یک سوره تا پردازش، استخراج ترجمه‌ها و رندرینگ کارت‌ها روی صفحه.
+
+```plantuml
+@startuml
+!theme crt-green
+autonumber
+title توالی دریافت داده و رندر همزمان متون و صوت
+
+actor "کاربر" as User
+participant "رابط کاربری (UI)" as UI
+participant "هسته منطقی (JS Logic)" as Logic
+participant "سرویس AlQuran API" as API
+participant "حافظه محلی (Storage)" as DB
+
+User -> UI : انتخاب سوره جدید (یا کلیک بعدی/قبلی)
+UI -> Logic : فراخوانی loadSurah(surahId)
+activate Logic
+
+Logic -> UI : نمایش لودر انیمیشنی (showLoader)
+Logic -> Logic : ترکیب شناسه‌های ترجمه و قاری فعال
+
+Logic -> API : GET /surah/{id}/editions/quran-uthmani,{trans},{qari}
+activate API
+API --> Logic : بازگشت پکیج تجمیعی JSON
+deactivate API
+
+Logic -> Logic : تفکیک داده متن اصلی، صوت و آرایه ترجمه‌ها
+Logic -> Logic : اجرای تابع formatArabicWithColoredSymbols()
+Logic -> DB : ذخیره نشانک (Save Bookmark)
+Logic -> UI : رندر کارت‌های آیات (renderAyahs)
+Logic -> UI : به‌روزرسانی کارت معرف سوره (Banner Card)
+Logic -> UI : مخفی‌سازی لودر
+deactivate Logic
+
+UI --> User : نمایش آیات، هایلایت خط اول و آماده‌سازی پلیر
+@enduml
+```
+
+---
+
+### ۳. دیاگرام ماشین وضعیت پلیر صوتی (Audio State Machine)
+![33](image-7.png)
+> **هدف:** تشریح چگونگی مدیریت پخش پیوسته، رفتار پایان هر آیه بر اساس ۳ مود (تک‌آیه، سوره، ختم پیوسته)، و هماهنگی اسکرول خودکار.
+
+```plantuml
+@startuml
+!theme materia
+title ماشین وضعیت پخش صوت و هدایت خودکار خط
+
+[*] --> متوقف : لود اولیه سوره
+
+state متوقف {
+  متوقف : audio.paused = true
+  متوقف : دکمه Play فعال است
+}
+
+state در_حال_پخش {
+  در_حال_پخش : audio.play()
+  در_حال_پخش : آیه جاری هایلایت می‌شود
+  در_حال_پخش : اسکرول نرم به مرکز صفحه (Auto-Scroll)
+}
+
+state تصمیم_گیری_پایان_آیه <<choice>>
+
+متوقف --> در_حال_پخش : کلیک Play / کلیک آیکون پخش آیه
+در_حال_پخش --> متوقف : کلیک Pause / کلیک Stop
+
+در_حال_پخش --> تصمیم_گیری_پایان_آیه : رخداد ended (اتمام صوت آیه)
+
+تصمیم_گیری_پایان_آیه --> متوقف : اگر مود == 'single'
+تصمیم_گیری_پایان_آیه --> در_حال_پخش : اگر هنوز در سوره آیه مانده (آیه بعد)
+تصمیم_گیری_پایان_آیه --> بارگذاری_سوره_بعد : مود == 'khatm' و انتهای سوره
+تصمیم_گیری_پایان_آیه --> متوقف : مود == 'surah' و انتهای سوره
+
+state بارگذاری_سوره_بعد {
+  بارگذاری_سوره_بعد : loadSurah(current + 1)
+}
+بارگذاری_سوره_بعد --> در_حال_پخش : شروع آیه اول سوره جدید
+@enduml
+```
+
+---
+
+### ۴. خط لوله پردازش علائم تجوید و وقف (Data Pipeline Diagram)
+![44](image-8.png)
+> **هدف:** بررسی زیرکاپوت نحوه تبدیل متون خام عثمان‌طه حاوی کدهای نامرئی یونیکد به المان‌های بصری غنی و رنگی.
+
+```plantuml
+@startuml
+!theme lightgray
+title پایپ‌لاین تبدیل یونیکدهای تجوید به المان‌های غنی بصری
+
+|متن خام از سرور|
+start
+:دریافت رشته عربی Uthmani;
+note right: شامل کاراکترهای اعراب و علائم استاندارد
+
+|موتور پردازش رگولار اکسپرشن|
+:بررسی کد [\u06D6\u06D7\u06DA\u06DB];
+:برچسب‌گذاری: وقف جایز، صلی، قلی (رنگ طلایی);
+
+:بررسی کد [\u06D8];
+:برچسب‌گذاری: وقف لازم - مـ (رنگ قرمز هشدار);
+
+:بررسی کد [\u06D9];
+:برچسب‌گذاری: وقف ممنوع - لا (رنگ صورتی);
+
+:بررسی کد [\u06DC];
+:برچسب‌گذاری: علامت سکته (رنگ بنفش);
+
+:بررسی کد [\u06DE و \u06E9];
+:برچسب‌گذاری: علامت شروع حزب و سجده (فیروزه‌ای);
+
+|خروجی سند DOM|
+:تولید تگ <span class="quran-mark ...">;
+:اعمال انیمیشن Hover و نمایش Tooltip فارسی;
+stop
+@enduml
+```
+
+---
+
+### ۵. ساختار مدل داده وضعیت برنامه (State & Storage Class Diagram)
+![55](image-9.png)
+> **هدف:** نمایش شکل داده‌های متمرکز در `APP_STATE` و نحوه نگه‌داری ساختاریافته آبجکت‌ها درون حافظه.
+
+```plantuml
+@startuml
+!theme plain
+title ساختار مدل وضعیت مرکزی (APP_STATE Model)
+
+class APP_STATE {
+    +int currentSurah
+    +int currentAyahIndex
+    +String playMode [single | surah | khatm]
+    +String qari
+    +String theme
+    +Boolean showTranslation
+    +Array<String> selectedTranslations
+    +String arabicFont
+    +String transFont
+    +int arabicSize
+    +int transSize
+    +float volume
+    +Boolean autoScroll
+    +int totalAyahsRead
+    +int downloadedBytes
+    +Bookmark lastReadBookmark
+}
+
+class Bookmark {
+    +int surah
+    +int ayah
+}
+
+class AyahData {
+    +int numberInSurah
+    +String text
+    +String audioUrl
+    +Array<TranslationItem> translations
+}
+
+class TranslationItem {
+    +String id
+    +String translatorName
+    +String dir [rtl | ltr]
+    +String text
+}
+
+APP_STATE *-- Bookmark
+APP_STATE o-- AyahData
+AyahData *-- TranslationItem
+@enduml
+```
+
+---
+
+### ۶. نقشه درختی اجزای رابط کاربری (Component Hierarchy Diagram)
+![66](image-10.png)
+> **هدف:** تفکیک ماژولار تمامی پنل‌ها، المان‌های شناور و پنجره‌های پاپ‌آپ داخل ساختار صفحه.
+
+```plantuml
+@startuml
+!theme cerulean
+title ساختار درختی و دسته‌بندی اجزای رابط کاربری (UI Hierarchy)
+
+package "نمای اصلی (DOM Viewport)" {
+    [Brightness Overlay\n(لایه کاهش نور)] 
+    
+    package "Header (هدر چسبان)" {
+        [دکمه منوی سوره‌ها]
+        [نام سوره جاری]
+        [دکمه تنظیمات]
+        [دکمه آمار]
+    }
+
+    package "Main Content (کانتینر مطالعه)" {
+        [نوار ناوبری سریع (قبلی / بعدی / بوکمارک)]
+        [بنر مشخصات سوره (مکی/مدنی، جزء)]
+        folder "لیست کارت آیات" {
+            [هدر کارت (شماره، پلی، دانلود)]
+            [متن عربی رنگ‌آمیزی‌شده]
+            [کانتینر مقایسه موازی ترجمه‌ها]
+        }
+    }
+
+    package "Floating Bottom Player (پلیر شناور)" {
+        [سلکتور مود پخش (تک‌آیه / سوره / ختم)]
+        [اسلایدر ولوم و کلید Mute]
+        [کنترل‌های جابه‌جایی و پلی/پاز]
+        [دکمه دانلود کل سوره و سوییچ اسکرول]
+    }
+}
+
+package "کشوی جانبی و مودال‌ها (Drawers & Modals)" {
+    [کشوی فهرست ۱۱۴ سوره + جستجوگر زنده]
+    [مودال تنظیمات جامع (فونت، سایز، تم، ترجمه‌ها)]
+    [مودال گزارش آمار و مصرف ترافیک]
+}
+@enduml
+```
+
+---
+
+### ۷. دیاگرام سفر و جریان کاربری (User Journey Activity Diagram)
+![77](image-11.png)
+> **هدف:** توصیف تمام مسیرهایی که یک مخاطب (از ورود، تغییر شخصی‌سازی، تا مطالعه و ختم) می‌تواند در سامانه طی کند.
+
+```plantuml
+@startuml
+!theme amiga
+title دیاگرام تجربه و سناریوهای کاربری (User Journey)
+
+start
+:ورود به وب‌اپلیکیشن;
+:اعمال تم تاریک پیش‌فرض و بازیابی نشانک از حافظه;
+
+if (آیا کاربر مایل به ادامه مطالعه قبلی است؟) then (بله)
+    :کلیک روی چیپ «ادامه آخرین قرائت»;
+    :هدایت خودکار به سوره و آیه نشانه‌گذاری‌شده;
+else (خیر)
+    :انتخاب سوره از کشو یا استفاده از دکمه‌های ناوبری سریع;
+endif
+
+fork
+    :مطالعه متن عربی همراه با نشانه‌های رنگی وقف;
+fork again
+    :مقایسه همزمان تفاسیر و ترجمه‌های منتخب;
+fork again
+    :فعال‌سازی پلیر صوتی (ترتیل قاری منتخب);
+    :فعال بودن Auto-Scroll برای دنبال کردن خودکار خط;
+fork again
+    :شخصی‌سازی محیط (اندازه قلم، فونت عثمان‌طه، نور صفحه);
+end fork
+
+:توقف مطالعه یا خروج از صفحه;
+:ذخیره خودکار موقعیت آیه در LocalStorage;
+stop
+@enduml
+```
+
+---
