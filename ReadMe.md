@@ -1,4 +1,3 @@
-```markdown
 <div dir="rtl">
 
 # 📖 سامانه جامع قرآن کریم | Quran Pro (Material 3)
@@ -559,4 +558,3 @@ stop
 </p>
 
 </div>
-```
