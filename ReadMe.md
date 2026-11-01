@@ -1,124 +1,161 @@
-```markdown
-<div align="center">
-
 # 📖 سامانه جامع قرآن کریم | Quran Pro (Material 3)
 
-[![Version](https://img.shields.io/badge/Version-2.5.0-059669?style=for-the-badge&logo=semver&logoColor=white)](https://github.com)
-[![Architecture](https://img.shields.io/badge/Architecture-Vanilla%20JS%20%7C%20CSS3-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://github.com)
-[![Design](https://img.shields.io/badge/Design-Material%20Design%203-4285F4?style=for-the-badge&logo=materialdesign&logoColor=white)](https://m3.material.io)
-[![API](https://img.shields.io/badge/API-AlQuran%20Cloud-0284C7?style=for-the-badge&logo=cloud&logoColor=white)](https://alquran.cloud/api)
-[![License: MIT](https://img.shields.io/badge/License-MIT-10B981?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
-
 <p align="center">
-  <b>یک وب‌اپلیکیشن جامع، فوق‌سبک و بدون وابستگی (Zero-Dependency) برای قرائت، مطالعه تطبیقی تفاسیر و استماع ترتیل کلام‌الله مجید بر پایه زبان طراحی Google Material Design 3.</b>
+  <img src="https://img.shields.io/badge/Version-2.5.0-emerald?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Architecture-Vanilla%20JS%20%7C%20CSS3-yellow?style=for-the-badge&logo=javascript" alt="Stack" />
+  <img src="https://img.shields.io/badge/Design-Material%20Design%203-blue?style=for-the-badge&logo=materialdesign" alt="Design" />
+  <img src="https://img.shields.io/badge/API-AlQuran%20Cloud-informational?style=for-the-badge" alt="API" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
 </p>
 
-[🌐 پیش‌نمایش زنده](#-دموی-آنلاین) •
-[✨ ویژگی‌ها](#-ویژگی‌های-کلیدی) •
-[📐 معماری و دیاگرام‌ها](#-معماری-فنی-و-دیاگرام‌های-سیستم) •
-[🎙️ قاریان و قلم‌ها](#️-قاریان-و-قلم‌های-پشتیبانی‌شده) •
-[🚀 نحوه راه‌اندازی](#-نحوه-راه‌اندازی-و-استفاده) •
-[🤝 مشارکت](#-مشارکت-در-توسعه-contributing)
+<p align="center">
+  یک وب‌اپلیکیشن جامع، فوق‌سبک و بدون وابستگی (Zero-Dependency) برای قرائت، مطالعه تطبیقی تفاسیر، و استماع ترتیل کلام‌الله مجید بر پایه زبان طراحی مدرن <b>Material Design 3</b> گوگل.
+</p>
 
-</div>
+<p align="center">
+  <a href="#-دموی-آنلاین">مشاهده دمو</a> •
+  <a href="#-ویژگی‌های-کلیدی">ویژگی‌ها</a> •
+  <a href="#-پشت-صحنه-فنی">معماری فنی</a> •
+  <a href="#-نحوه-راه‌اندازی">راه‌اندازی</a> •
+  <a href="#-فونت‌ها-و-قاریان">قاریان و فونت‌ها</a>
+</p>
 
 ---
 
 ## 🌟 دموی آنلاین
-
-> [!TIP]
-> برای تجربه زنده و بدون نیاز به نصب، روی لینک زیر کلیک کنید:
-> 
-> 👉 **[مشاهده و اجرای پروژه در CodePen](https://codepen.io/editor/Silent-Galaxy/pen/01a192b0-cbd7-7082-8434-665dfe2d6fae)**
-
----
-
-## 🖼️ گالری تصاویر
-
-<div align="center">
-  <table>
-    <tr>
-      <td width="50%"><img src="image.png" alt="نمای اصلی سامانه" /></td>
-      <td width="50%"><img src="image-1.png" alt="پلیر و تنظیمات صوتی" /></td>
-    </tr>
-    <tr>
-      <td width="50%"><img src="image-2.png" alt="مطالعه تطبیقی تفاسیر" /></td>
-      <td width="50%"><img src="image-3.png" alt="پالت‌های رنگی و تم‌ها" /></td>
-    </tr>
-    <tr>
-      <td colspan="2" align="center"><img src="image-4.png" alt="پنل تنظیمات فونت و تجوید" width="85%" /></td>
-    </tr>
-  </table>
-</div>
+شما می‌توانید پیش‌نمایش زنده این سامانه را در لینک زیر تجربه کنید:
+👉 **[مشاهده در CodePen](https://codepen.io/editor/Silent-Galaxy/pen/01a192b0-cbd7-7082-8434-665dfe2d6fae)**
 
 ---
 
 ## ✨ ویژگی‌های کلیدی
 
+
+![0](image.png)
+
+![1](image-1.png)
+
+![2](image-2.png)
+
+![3](image-3.png)
+
+![4](image-4.png)
+
 ### 🔠 مطالعه تطبیقی چند ترجمه به صورت همزمان
 - مشاهده موازی چند ترجمه معتبر زیر هر آیه (استاد انصاریان، مکارم شیرازی، فولادوند، الهی قمشه‌ای، بهرام‌پور، خرمشاهی و Saheeh International انگلیسی).
-- امکان فعال یا غیرفعال‌سازی گزینشی هر ترجمه به تناسب نیاز کاربر.
+- امکان فعال یا غیرفعال‌سازی تک‌تک ترجمه‌ها طبق نیاز محقق.
 
 ### 🎨 رنگ‌آمیزی هوشمند علائم وقف و تجوید (Regex-Powered)
-- شناسایی خودکار کدهای یونیکد علائم مصحف شریف بر پایه Regex:
-  - **وقف لازم (مـ):** تفکیک بصری قرمز با برچسب هشدار
-  - **وقف ممنوع (لا):** نشانه‌گذاری صورتی یاقوتی
-  - **علامت سکته (س):** هایلایت بنفش اختصاصی
-  - **شروع حزب و سجده:** برچسب فیروزه‌ای متمایز
+- تشخیص خودکار کدهای یونیکد علائم قرآنی نظیر:
+  - **وقف لازم:** تفکیک قرمز و هشدار
+  - **وقف ممنوع (لا):** صورتی یاقوتی
+  - **سکته:** بنفش اختصاصی
+  - **حزب و سجده:** نشانه‌گذاری متمایز
 
-### 🎧 موتور صوتی پیشرفته و رهگیری هوشمند خط
-- **۳ حالت تلاوت:** تک‌آیه، سوره کامل و ختم پیوسته قرآن (انتقال خودکار بین سوره‌ها).
-- **Auto-Scroll هوشمند:** حرکت نرم صفحه و مشخص کردن آیه جاری هماهنگ با صوت قاری.
-- **کنترل صوتی درون‌برنامه‌ای:** اسلایدر تنظیم حجم صدا بدون وابستگی به کلیدهای سخت‌افزاری.
-- دانلود مستقیم صوت هر آیه یا دانلود یکپارچه کل سوره.
+### 🎧 پلیر پیشرفته صوتی و دنبال‌کننده تلاوت
+- **۳ حالت تلاوت:** تک‌آیه، سوره کامل، و ختم پیوسته قرآن بدون توقف میان سوره‌ها.
+- **Auto-Scroll هوشمند:** هدایت نرم صفحه و هایلایت بصری همزمان با صدای قاری.
+- **کنترل بلندی صدا (Volume Slider):** تنظیم ولوم از داخل رابط بدون نیاز به کلیدهای فیزیکی دستگاه.
+- امکان دانلود تکی صوت هر آیه یا صف دانلود تمام سوره.
 
-### 🌙 سلامت چشم و بهینه‌سازی ارگونومیک
-- حالت شب (Dark Mode) پیش‌فرض با رعایت دقیق کنتراست رنگی متریال ۳.
-- اسلایدر کاهش نور نرم‌افزاری (Brightness Dimmer) برای مطالعه در تاریکی مطلق.
-- ۸ پالت رنگی داینامیک: *زمردی، سرمه‌ای، طلایی، یاقوتی، بنفش، فیروزه‌ای و ...*
+### 🌙 سلامت چشم و تم‌های چندگانه
+- حالت شب (Dark Mode) پیش‌فرض و کمینه‌گرا با کنتراست ارگونومیک.
+- اسلایدر اختصاصی برای کم کردن نرم‌افزاری نور صفحه برای مطالعه در تاریکی مطلق.
+- ۸ پالت رنگی جذاب شامل: *زمردی، سرمه‌ای، طلایی، یاقوتی، بنفش و فیروزه‌ای*.
 
-### ⚡ ذخیره‌سازی محلی و عملکرد بی‌نیاز از سرور
-- ذخیره خودکار آخرین موقعیت مطالعه (Bookmark) و بازگشت آنی در مراجعات بعدی.
-- داشبورد آماری داخلی برای پایش زمان مطالعه و تخمین حجم اینترنت مصرفی.
+### ⚡ ذخیره‌سازی ابری و عملکرد بدون نیاز به سرور
+- ثبت خودکار آخرین آیه خوانده شده (Bookmark) و پرش سریع به آن در مراجعات بعدی.
+- سیستم آمار داخلی جهت محاسبه زمان مطالعه و تخمین حجم اینترنت مصرفی.
 
 ---
 
 ## 🛠 معماری و ساختار فنی
 
-این سامانه به صورت **Single-File Application** پیاده‌سازی شده و نیازی به فرایند ساخت یا باندلر (`Webpack`, `Vite`, `npm build`) ندارد.
+این نرم‌افزار به صورت **Single-File Application** طراحی شده و نیازی به هیچ مرحله کامپایل (`npm build`, `webpack`, `vite`) ندارد.
 
 ```text
-quran-pro-material3/
-├── index.html           # ساختار سمانتیک، لی‌آوت اصلی و دسترس‌پذیری (ARIA)
-├── CSS (Embedded)       # متغیرهای CSS (:root)، توکن‌های Material Design 3 و رسپانسیو
-└── JS (Embedded)        # مدیریت وضعیت (State)، کنترل DOM، موتور Audio و AlQuran API
+├── index.html       # شامل تگ‌های سمانتیک، لایوت اصلی و ساختار دسترسی‌پذیری
+├── CSS (Embedded)   # توکن‌های متریال ۳، متغیرهای CSS (:root)، مدیاکوئری‌های ریسپانسیو
+└── JS (Embedded)    # مدیریت وضعیت (APP_STATE)، تعامل با API، کنترل رویدادهای Audio و DOM
 ```
 
-### اصول مهندسی به‌کار رفته:
-1. **Material Design 3 Tokens:** تغییر داینامیک رنگ‌ها و متغیرهای بصری بدون نیاز به بازنشانی DOM.
-2. **REST API Integration:** دریافت بهینه‌سازی‌شده دسته‌های داده از سرویس `api.alquran.cloud`.
-3. **Data Persistence:** ذخیره‌سازی داده‌های سشن، تنظیمات شخصی‌سازی و بوکمارک در `localStorage`.
-4. **Unicode Regex Engine:** پارس متون و اعراب‌گذاری علائم عثمان‌طه:
+### استانداردهای به‌کار رفته:
+1. **Material Design 3 Tokenization:** تعویض آنی رنگ‌بندی با تغییر متغیرهای پویا بدون رندر مجدد DOM.
+2. **RESTful API Consumption:** واکشی دینامیک بسته‌های سوره‌ها از سرویس مرجع `api.alquran.cloud`.
+3. **Data Persistence:** نگه‌داری اطلاعات سشن، تنظیمات و نشانک در `Window.localStorage`.
+4. **Regular Expression Parsing:** پردازش رشته‌های حاوی نمادهای عثمان‌طه بر پایه استانداردهای یونیکد زبان عربی:
    ```javascript
    text.replace(/([\u06D8])/g, '<span class="quran-mark mark-lazim">$1</span>');
    ```
 
 ---
 
-## 📐 معماری فنی و دیاگرام‌های سیستم
+## 🎙️ قاریان و قلم‌های پشتیبانی‌شده
 
-<details open>
-<summary><b>۱. دیاگرام معماری کلان (System Architecture)</b></summary>
-<br>
+| قلم‌های قرآنی و متنی | قاریان برجسته جهان اسلام |
+| :--- | :--- |
+| • امیری قرآنی (Amiri Quran - عثمان طه) | • مشاری راشد العفاسی |
+| • شهرزاد نسخ (Scheherazade New) | • عبدالباسط عبدالصمد (مجود) |
+| • نوتو نسخ گوگل (Noto Naskh Arabic) | • محمد صدیق منشاوی |
+| • وزیرمتن (Vazirmatn) | • سعود الشریم |
+| • لطیف (Lateef) | • شهریار پرهیزگار (تلاوت آموزشی) |
 
-نمای ارتباطی میان کلاینت، APIهای خارجی، شبکه توزیع محتوا (CDN) و حافظه محلی مرورگر:
+---
+
+## 🚀 نحوه اجرا و استفاده
+
+برای اجرای این پروژه روی سیستم خود تنها به یک مرورگر مدرن نیاز دارید:
+
+```bash
+# ۱. کلون کردن مخزن
+git clone https://github.com/YOUR_USERNAME/quran-pro-material3.git
+
+# ۲. ورود به دایرکتوری
+cd quran-pro-material3
+
+# ۳. اجرای فایل index.html (روی فایل دو بار کلیک کنید یا با مرورگر باز کنید)
+```
+
+یا با استفاده از یک لایو سرور سبک در پایتون:
+```bash
+python3 -m http.server 8000
+```
+سپس آدرس `http://localhost:8000` را در مرورگر باز کنید.
+
+---
+
+## 🤝 مشارکت در توسعه (Contributing)
+پیشنهادات، گزارش باگ‌ها و افزودن ترجمه‌ها یا قابلیت‌های جدید صمیمانه استقبال می‌شود:
+1. این ریپازیتوری را Fork کنید.
+2. یک Branch برای قابلیت جدید خود ایجاد کنید (`git checkout -b feature/NewAwesomeFeature`).
+3. تغییرات را Commit کنید (`git commit -m 'Add some NewAwesomeFeature'`).
+4. برنچ را Push کنید (`git push origin feature/NewAwesomeFeature`).
+5. یک Pull Request ارسال نمایید.
+
+---
+
+## 📄 لایسنس
+این پروژه تحت لایسنس **MIT** به صورت کاملاً آزاد و متن‌باز (Open Source) منتشر شده است. استفاده، بازنشر و شخصی‌سازی آن برای تمامی اهداف غیرتجاری و تجاری بلامانع است.
 
 <p align="center">
-  <img src="image-5.png" alt="System Architecture Diagram" width="90%" />
+  با آرزوی بهره‌مندی و آرامش در تلاوت کلام وحی ✨
 </p>
 
-<details>
-<summary>نمایش کد منبع PlantUML</summary>
+
+
+
+
+
+
+در ادامه **۷ دیاگرام استاندارد مهندسی نرم‌افزار با فرمت PlantUML** آماده شده است. این دیاگرام‌ها زوایای مختلف معماری (ارتباطات سیستم، چرخه داده، ماشین وضعیت صوتی، پایپ‌لاین پردازش تجوید، ساختار کامپوننت‌ها و سفر کاربر) را پوشش می‌دهند.
+
+کدهای هر بخش را می‌توانید مستقیماً در **[ادیتور آنلاین PlantUML](https://editor.plantuml.com/)** کپی کنید تا تصویر خروجی را مشاهده فرمایید یا در انتهای فایل `README.md` در گیت‌هاب قرار دهید.
+
+---
+
+### ۱. دیاگرام معماری کلان سامانه (System Architecture Diagram)
+![11](image-5.png)
+> **هدف:** درک رابطه برنامه تک‌صفحه‌ای (Client-Side) با سرویس‌های ابری، شبکه CDN و حافظه محلی مرورگر.
 
 ```plantuml
 @startuml
@@ -151,23 +188,12 @@ App --> AudioAPI : فرمان پخش، ولوم و توقف
 AudioAPI --> AudioCDN : استریم صوت قاریان
 @enduml
 ```
-</details>
-</details>
 
 ---
 
-<details open>
-<summary><b>۲. دیاگرام توالی واکشی و رندر داده (Sequence Diagram)</b></summary>
-<br>
-
-چرخه بارگذاری سوره، تفکیک ترجمه‌ها، پردازش اعراب و به‌روزرسانی DOM:
-
-<p align="center">
-  <img src="image-6.png" alt="Sequence Diagram" width="90%" />
-</p>
-
-<details>
-<summary>نمایش کد منبع PlantUML</summary>
+### ۲. دیاگرام توالی بارگذاری سوره و ترجمه‌ها (Sequence Diagram)
+![22](image-6.png)
+> **هدف:** نمایش دقیق ترتیبات رویدادها از زمان انتخاب یک سوره تا پردازش، استخراج ترجمه‌ها و رندرینگ کارت‌ها روی صفحه.
 
 ```plantuml
 @startuml
@@ -204,23 +230,12 @@ deactivate Logic
 UI --> User : نمایش آیات، هایلایت خط اول و آماده‌سازی پلیر
 @enduml
 ```
-</details>
-</details>
 
 ---
 
-<details open>
-<summary><b>۳. ماشین وضعیت پلیر صوتی (Audio State Machine)</b></summary>
-<br>
-
-مدیریت رویدادهای پخش در سه حالت تلاوت (تک‌آیه، کل سوره و ختم پیوسته):
-
-<p align="center">
-  <img src="image-7.png" alt="Audio State Machine" width="90%" />
-</p>
-
-<details>
-<summary>نمایش کد منبع PlantUML</summary>
+### ۳. دیاگرام ماشین وضعیت پلیر صوتی (Audio State Machine)
+![33](image-7.png)
+> **هدف:** تشریح چگونگی مدیریت پخش پیوسته، رفتار پایان هر آیه بر اساس ۳ مود (تک‌آیه، سوره، ختم پیوسته)، و هماهنگی اسکرول خودکار.
 
 ```plantuml
 @startuml
@@ -258,23 +273,12 @@ state بارگذاری_سوره_بعد {
 بارگذاری_سوره_بعد --> در_حال_پخش : شروع آیه اول سوره جدید
 @enduml
 ```
-</details>
-</details>
 
 ---
 
-<details open>
-<summary><b>۴. پایپ‌لاین پردازش علائم تجوید و وقف (Data Pipeline)</b></summary>
-<br>
-
-جریان تبدیل یونیکدهای خام استاندارد عثمان‌طه به عناصر تعاملی و برچسب‌های رنگی:
-
-<p align="center">
-  <img src="image-8.png" alt="Tanjweed Pipeline Diagram" width="90%" />
-</p>
-
-<details>
-<summary>نمایش کد منبع PlantUML</summary>
+### ۴. خط لوله پردازش علائم تجوید و وقف (Data Pipeline Diagram)
+![44](image-8.png)
+> **هدف:** بررسی زیرکاپوت نحوه تبدیل متون خام عثمان‌طه حاوی کدهای نامرئی یونیکد به المان‌های بصری غنی و رنگی.
 
 ```plantuml
 @startuml
@@ -308,23 +312,12 @@ note right: شامل کاراکترهای اعراب و علائم استاند�
 stop
 @enduml
 ```
-</details>
-</details>
 
 ---
 
-<details open>
-<summary><b>۵. مدل داده وضعیت برنامه (State & Storage Model)</b></summary>
-<br>
-
-ساختار متمرکز آبجکت‌های نگه‌داری داده و تنظیمات در `APP_STATE`:
-
-<p align="center">
-  <img src="image-9.png" alt="Class Diagram" width="80%" />
-</p>
-
-<details>
-<summary>نمایش کد منبع PlantUML</summary>
+### ۵. ساختار مدل داده وضعیت برنامه (State & Storage Class Diagram)
+![55](image-9.png)
+> **هدف:** نمایش شکل داده‌های متمرکز در `APP_STATE` و نحوه نگه‌داری ساختاریافته آبجکت‌ها درون حافظه.
 
 ```plantuml
 @startuml
@@ -374,23 +367,12 @@ APP_STATE o-- AyahData
 AyahData *-- TranslationItem
 @enduml
 ```
-</details>
-</details>
 
 ---
 
-<details open>
-<summary><b>۶. ساختار درختی اجزای رابط کاربری (UI Component Hierarchy)</b></summary>
-<br>
-
-سلسله‌مراتب المان‌های صفحه، لایه‌ها و مودال‌های کنترلی:
-
-<p align="center">
-  <img src="image-10.png" alt="UI Component Hierarchy" width="90%" />
-</p>
-
-<details>
-<summary>نمایش کد منبع PlantUML</summary>
+### ۶. نقشه درختی اجزای رابط کاربری (Component Hierarchy Diagram)
+![66](image-10.png)
+> **هدف:** تفکیک ماژولار تمامی پنل‌ها، المان‌های شناور و پنجره‌های پاپ‌آپ داخل ساختار صفحه.
 
 ```plantuml
 @startuml
@@ -432,23 +414,12 @@ package "کشوی جانبی و مودال‌ها (Drawers & Modals)" {
 }
 @enduml
 ```
-</details>
-</details>
 
 ---
 
-<details open>
-<summary><b>۷. جریان تجربه و سفر کاربر (User Journey)</b></summary>
-<br>
-
-سناریوهای تعاملی کاربر از ورود تا شخصی‌سازی، پخش صوت و نشانه‌گذاری:
-
-<p align="center">
-  <img src="image-11.png" alt="User Journey Diagram" width="90%" />
-</p>
-
-<details>
-<summary>نمایش کد منبع PlantUML</summary>
+### ۷. دیاگرام سفر و جریان کاربری (User Journey Activity Diagram)
+![77](image-11.png)
+> **هدف:** توصیف تمام مسیرهایی که یک مخاطب (از ورود، تغییر شخصی‌سازی، تا مطالعه و ختم) می‌تواند در سامانه طی کند.
 
 ```plantuml
 @startuml
@@ -482,62 +453,5 @@ end fork
 stop
 @enduml
 ```
-</details>
-</details>
 
 ---
-
-## 🎙️ قاریان و قلم‌های پشتیبانی‌شده
-
-| قلم‌های قرآنی و متنی | قاریان برجسته جهان اسلام |
-| :--- | :--- |
-| • **امیری قرآنی** (Amiri Quran - مصحف مدینه) | • **مشاری راشد العفاسی** |
-| • **شهرزاد نسخ** (Scheherazade New) | • **عبدالباسط عبدالصمد** (مجود) |
-| • **نوتو نسخ عربی** (Noto Naskh Arabic) | • **محمد صدیق منشاوی** |
-| • **وزیرمتن** (Vazirmatn) | • **سعود الشریم** |
-| • **لطیف** (Lateef) | • **شهریار پرهیزگار** (آموزشی) |
-
----
-
-## 🚀 نحوه راه‌اندازی و استفاده
-
-برای اجرای این سامانه به نصب هیچ‌گونه ابزار پیش‌نیاز یا کتابخانه سنگین نیاز ندارید.
-
-### روش اول: اجرای مستقیم (سریع‌ترین حالت)
-1. مخزن را کلون کنید:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/quran-pro-material3.git
-   cd quran-pro-material3
-   ```
-2. فایل `index.html` را در هر مرورگر به‌روز (کروم، فایرفاکس، اج، سافاری) باز کنید.
-
-### روش دوم: اجرای Local Server (پیشنهادی برای شبیه‌سازی PWA)
-با استفاده از وب‌سرور داخلی پایتون:
-```bash
-# Python 3
-python -m http.server 8000
-```
-سپس آدرس `http://localhost:8000` را در مرورگر باز کنید.
-
----
-
-## 🤝 مشارکت در توسعه (Contributing)
-
-مشارکت در توسعه و بهینه‌سازی این پروژه مورد استقبال است:
-
-1. پروژه را **Fork** کنید.
-2. یک شاخه جدید بسازید (`git checkout -b feature/NewFeature`).
-3. تغییرات خود را ثبت (Commit) کنید (`git commit -m 'feat: Add NewFeature'`).
-4. تغییرات را ارسال کنید (`git push origin feature/NewFeature`).
-5. یک **Pull Request** ایجاد کنید.
-
----
-
-## 📄 مجوز و لایسنس
-
-این پروژه تحت مجوز متن‌باز **[MIT License](LICENSE)** منتشر شده است. استفاده تجاری و غیرتجاری، تغییر و بازنشر آن آزاد و بلامانع است.
-
-<div align="center">
-  <sub>با آرزوی بهره‌مندی و آرامش در تلاوت کلام وحی ✨</sub>
-</div>
-```
