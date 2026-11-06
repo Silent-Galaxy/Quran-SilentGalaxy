@@ -61,14 +61,14 @@
 لذت بخش</b></sub>
     </td>
     <td align="center" width="50%">
-      <img src="image-3.png" alt="مطالعه تطبیقی چند ترجمه" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:100%;" />
-      <br><sub><b>مطالعه تطبیقی همزمان چند ترجمه</b></sub>
+      <img src="image-3.png" alt=" فهرست سوره‌های قرآن" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:100%;" />
+      <br><sub><b> فهرست سوره‌های قرآن کاربر پسند</b></sub>
     </td>
   </tr>
   <tr>
     <td colspan="2" align="center">
-      <img src="image-4.png" alt="پلیر صوتی و دنبال‌کننده خط" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:75%;" />
-      <br><sub><b>پلیر صوتی شناور با قابلیت تنظیم سرعت و ولوم</b></sub>
+      <img src="image-4.png" alt=" فهرست سوره‌های قرآن سوره فعلی" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:75%;" />
+      <br><sub><b> فهرست سوره‌های قرآن فعلی</b></sub>
     </td>
   </tr>
 </table>
