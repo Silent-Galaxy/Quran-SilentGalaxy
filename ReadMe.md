@@ -45,18 +45,20 @@
 <table align="center" width="100%">
   <tr>
     <td align="center" width="50%">
-      <img src="image.png" alt="نمای اصلی و کارت آیات" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:100%;" />
-      <br><sub><b>نمای اصلی و متن آیات همراه با ترجمه</b></sub>
+      <img src="image.png" alt="تنظیمات شخصی سازی" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:100%;" />
+      <br><sub><b>تنظیمات کاربر پسند</b></sub>
     </td>
     <td align="center" width="50%">
-      <img src="image-1.png" alt="کشوی انتخاب سوره و جستجو" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:100%;" />
-      <br><sub><b>کشوی فهرست ۱۱۴ سوره و جستجوی لحظه‌ای</b></sub>
+      <img src="image-1.png" alt="نمای اصلی و متن آیات همراه با ترجمه" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:100%;" />
+      <br><sub><b>نمای اصلی و متن آیات همراه با ترجمه لذت بخش</b></sub>
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
-      <img src="image-2.png" alt="مود تاریک و پنل تنظیمات" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:100%;" />
-      <br><sub><b>پنل تنظیمات فونت، تم‌ها و ترجمه‌ها</b></sub>
+      <img src="image-2.png" alt=" آمار مطالعه و مصرف شبکه
+" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:100%;" />
+      <br><sub><b> آمار مطالعه و مصرف شبکه
+لذت بخش</b></sub>
     </td>
     <td align="center" width="50%">
       <img src="image-3.png" alt="مطالعه تطبیقی چند ترجمه" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width:100%;" />
