@@ -32,7 +32,7 @@
 
 👉 **[مشاهده دمو در CodePen](https://codepen.io/editor/Silent-Galaxy/pen/01a192b0-cbd7-7082-8434-665dfe2d6fae)**
 
-👉 **[مشاهده دمو در سایت شخصی و قابل بررسی از اینترنت](https://github.com/Silent-Galaxy/Quran-SilentGalaxy)**
+👉 **[مشاهده دمو در سرور رایگان کلادفلر سراسر دنیا](https://quran.silentgalaxy.ir/)**
 
 
 > [!TIP]
